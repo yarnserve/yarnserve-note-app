@@ -18,3 +18,40 @@ body {
   color: #222;
   line-height: 1.5;
 }
+
+button {
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.header {
+  height: 80px;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 30px;
+}
+
+.note {
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 10px 16px rgba(0, 0, 0, 0.15);
+}
+
+.note p {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.note_footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
