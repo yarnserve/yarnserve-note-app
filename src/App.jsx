@@ -1,6 +1,9 @@
 import './App.css'
+import { db } from './firebase'
 
 export default function App() {
+  console.log(db)
+
   return (
     <div className='App'>
       <div className='header'>
