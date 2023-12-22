@@ -1,3 +1,5 @@
+import { doc, updateDoc } from 'firebase/firestore'
+import { db } from '../firebase'
 import React, { useRef } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 
@@ -6,6 +8,21 @@ export default function Edit() {
   const note = useLocation().state
   const titleRef = useRef()
   const detailRef = useRef()
+
+  function cancleEdit() {
+    navigate('/')
+  }
+
+  async function updateNote(id) {
+    var docRef = doc(db, 'notes', id)
+
+    await updateDoc(docRef, {
+      title: titleRef.current.value,
+      detail: detailRef.current.value,
+    })
+
+    navigate('/')
+  }
 
   return (
     <div className='container'>
@@ -26,8 +43,8 @@ export default function Edit() {
         ></textarea>
       </form>
       <div className='btns'>
-        <button>취소</button>
-        <button>완료</button>
+        <button onClick={cancleEdit}>취소</button>
+        <button onClick={() => updateNote(note.id)}>완료</button>
       </div>
     </div>
   )
