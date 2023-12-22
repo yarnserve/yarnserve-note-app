@@ -1,4 +1,4 @@
-import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function NoteItem({ note }) {
   return (
@@ -8,7 +8,9 @@ export default function NoteItem({ note }) {
       <div className='note_footer'>
         <div className='date'>{note.date.toDate().toLocaleString()}</div>
         <div className='btns'>
-          <button>수정</button>
+          <Link to={'/edit'}>
+            <button>수정</button>
+          </Link>
           <button>삭제</button>
         </div>
       </div>
