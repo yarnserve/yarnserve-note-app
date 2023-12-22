@@ -8,7 +8,9 @@ export default function Write() {
   const titleRef = useRef()
   const detailRef = useRef()
 
-  function writeNote() {
+  async function writeNote(e) {
+    e.preventDefault()
+
     var docRef = doc(collection(db, 'notes'))
     const data = {
       id: docRef.id,
@@ -16,7 +18,7 @@ export default function Write() {
       detail: detailRef.current.value,
       date: serverTimestamp(),
     }
-    setDoc(docRef, data)
+    await setDoc(docRef, data)
     navigate('/')
   }
 
