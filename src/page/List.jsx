@@ -15,6 +15,8 @@ export default function List() {
       })
       setNotes(items)
     })
+
+    return () => unsubscribe()
   }, [])
 
   return (
